@@ -1,27 +1,27 @@
-'use strict';
+"use strict";
 
-var webpack = require('webpack')
+var webpack = require("webpack");
 
-var env = process.env.NODE_ENV
+var env = process.env.NODE_ENV;
 var config = {
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
+      { test: /\.js$/, loaders: ["babel-loader"], exclude: /node_modules/ }
     ]
   },
   output: {
-    library: 'Redux',
-    libraryTarget: 'umd'
+    library: "Redux",
+    libraryTarget: "umd"
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env)
+      "process.env.NODE_ENV": JSON.stringify(env)
     })
   ]
 };
 
-if (env === 'production') {
+if (env === "production") {
   config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -31,7 +31,7 @@ if (env === 'production') {
         warnings: false
       }
     })
-  )
+  );
 }
 
-module.exports = config
+module.exports = config;

@@ -1,12 +1,12 @@
-import expect from 'expect'
-import { getTotal, getCartProducts } from '../../reducers'
+import expect from "expect";
+import { getTotal, getCartProducts } from "../../reducers";
 
-describe('selectors', () => {
-  describe('getTotal', () => {
-    it('should return price total', () => {
+describe("selectors", () => {
+  describe("getTotal", () => {
+    it("should return price total", () => {
       const state = {
         cart: {
-          addedIds: [ 1, 2, 3 ],
+          addedIds: [1, 2, 3],
           quantityById: {
             1: 4,
             2: 2,
@@ -29,16 +29,16 @@ describe('selectors', () => {
             }
           }
         }
-      }
-      expect(getTotal(state)).toBe('27.93')
-    })
-  })
+      };
+      expect(getTotal(state)).toBe("27.93");
+    });
+  });
 
-  describe('getCartProducts', () => {
-    it('should return products with quantity', () => {
+  describe("getCartProducts", () => {
+    it("should return products with quantity", () => {
       const state = {
         cart: {
-          addedIds: [ 1, 2, 3 ],
+          addedIds: [1, 2, 3],
           quantityById: {
             1: 4,
             2: 2,
@@ -61,7 +61,7 @@ describe('selectors', () => {
             }
           }
         }
-      }
+      };
 
       expect(getCartProducts(state)).toEqual([
         {
@@ -79,7 +79,7 @@ describe('selectors', () => {
           price: 9.99,
           quantity: 1
         }
-      ])
-    })
-  })
-})
+      ]);
+    });
+  });
+});
